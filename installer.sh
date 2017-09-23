@@ -1,9 +1,9 @@
 #!/bin/bash
 # Installer for weather application.
-apt-get update
-apt-get upgrade
-apt-get install python-dev
-apt-get install python-usb
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install python-dev
+apt-get -y install python-usb
 pip install pywws
 echo 'Testing weather station link - should show a lot of numbers.'
 python -m pywws.TestWeatherStation
@@ -12,7 +12,7 @@ adduser pi weather
 git clone https://github.com/adafruit/Adafruit_Python_CharLCD.git
 cd Adafruit_Python_CharLCD
 python setup.py install
-cd /home/pi
+cd ..
 # Adafruit LCD drivers
 sudo apt-get install build-essential python-dev python-smbus python-pip git
 sudo pip install RPi.GPIO

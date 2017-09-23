@@ -6,6 +6,10 @@ import rotary
 import wunder
 import keys
 
+REFRESH = 15*60
+
+print "Weather Master"
+print "Interval for weather info fetch:", REFRESH
 myLcd = lcd.Screen()
 myLcd.clear()
 myLcd.writerow(0,'Test')
@@ -20,10 +24,11 @@ print "Entering permanant loop showing time"
 while True:
 	count = count + myRotary.read_count()
 	new = time.time()
-	if (new-old) > 60:		# restrict how frequently we ask wunder
+	if (new-old) > REFRESH:		# restrict how frequently we ask wunder
+		print "Fetching weather info"
 		temp = myWeather.wunder(keys.wunder,keys.locn)
 		old = new
-	str1 = time.strftime(" %H:%M ")
+	str1 = time.strftime("C %H:%M ")
 	str1 = temp + str1 + "  " + str(count)
 	myLcd.writerow(0, str1)
 	str2 = time.strftime("%A %d %b")
