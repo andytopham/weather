@@ -29,9 +29,9 @@ while True:
 		temp = myWeather.wunder(keys.wunder,keys.locn)
 		old = new
 	str1 = time.strftime("C %H:%M ")
-	str1 = temp + str1 + "  " + str(count)
+	str1 = temp + str1 + "  " + str(count) + "  "
 	myLcd.writerow(0, str1)
-	str2 = time.strftime("%A %d %b")
+	str2 = time.strftime("%A %d %b   ")
 	myLcd.writerow(1, str2)
 	time.sleep(1)
 
