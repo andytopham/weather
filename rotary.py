@@ -14,6 +14,8 @@ Sw = 18
 
 class Rotary():
 	def __init__(self):
+		print 'Setting up rotary switch'
+		GPIO.cleanup()
 		self.Rotary_counter = 0           # Start counting from 0
 		self.Current_A = 1               # Assume that rotary switch is not 
 		self.Current_B = 1               # moving while we init software
